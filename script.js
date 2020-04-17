@@ -1,3 +1,39 @@
+function give(){
+  checkNumber(parseInt(document.getElementById("Guess").value));
+}
+
+function clean(){
+  document.getElementById("Guess").value= '';
+}
+
+
+function checkNumber(guess){
+   
+  if (isNaN(guess)){
+      alert('Please enter a valid number');
+      clean();
+      
+      
+  } 
+  else if (guess < 1) {
+      alert('Please enter a number greater than 0!');
+      clean();
+      
+  }
+  else if (guess > 100){
+      alert('Please enter a number less than 101!');
+      clean();
+      
+  }
+
+  else{
+
+      //move on to check
+      start(guess);
+      
+  }
+}
+
 function start() {
   //declaring of variables
   var range = document.getElementById('Guess').value;
@@ -8,7 +44,7 @@ function start() {
   
   
   while (isCorrect == false) {
-    document.getElementById('outputDiv').innerHTML += userInput + " ";
+    
     
     if (turn == 1){
       alert("GAME OVER. THE ANSWER WAS " + computerNum + ". Reload the page to restart.")
@@ -28,16 +64,4 @@ function start() {
     return isCorrect = true;
     }
   }
-}
-
-function star(guess){
-    if (guess > 1) {
-        alert('pls enter a number greater than 0');
-    }
-    else if (isNaN(guess)){
-        alert('pls enter a valid number');
-    }
-    else if (guess > 100){
-        alert('please enter a number less than 101');
-    }
 }
